@@ -1,3 +1,38 @@
+Generating a new SSH key and adding it to the ssh-agent  
+
+   Generating a new SSH key
+ $ ssh-keygen -t ed25519 -C "ntezoh@gmail.com"  
+ 
+ Note:
+ If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+
+-- $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ 
+ 
+      Adding your SSH key to the ssh-agent
+# start the ssh-agent in the background
+$ eval "$(ssh-agent -s)"
+> Agent pid xxxxx	  
+
+      Add your SSH private key to the ssh-agent
+$ ssh-add ~/.ssh/id_ed25519	  
+
+
+  Adding a new SSH key to your GitHub account
+  
+ Copy the SSH public key to your clipboard.
+$ clip < ~/.ssh/id_ed25519.pub 
+
+IN YOUR GITHUB ACCOUNT
+Click on settings
+In the "Access" section of the sidebar, click  SSH and GPG keys.
+Click New SSH key or Add SSH key.
+Paste the key copied in your clipboardm and save it.
+
+ALL SHOULD BE GOOD
+
+
+
 ngohtezo
 paul peter conti nelson rose
 guzang
